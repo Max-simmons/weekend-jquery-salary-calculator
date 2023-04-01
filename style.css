@@ -17,6 +17,11 @@ input{
 button {
     padding: .75em;
     width: 75px;
+    background-color: lightgrey;
+    border: 1px solid;
+    border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
 }
 
 /* Table CSS */
