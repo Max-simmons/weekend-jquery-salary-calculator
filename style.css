@@ -4,3 +4,32 @@ h1{
     color: whitesmoke;
     padding: 1.2em; 
 }
+
+table{
+    width: 100%;
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 2.15em;
+}
+
+th, td {
+    padding: .5em;
+    min-width: 3.5em;
+}
+
+thead {
+    background: gray;
+    color: black;
+}
+
+tbody tr:nth-child(odd) {
+    background: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: lightgray;
+}
