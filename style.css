@@ -5,6 +5,22 @@ h1{
     padding: 1.2em; 
 }
 
+/* Input CSS */
+
+input{
+    padding: .5em;
+    width: 18%;
+    background: white;
+    border: 1px solid;
+}
+
+button {
+    padding: .75em;
+    width: 75px;
+}
+
+/* Table CSS */
+
 table{
     width: 100%;
     text-align: left;
