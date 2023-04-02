@@ -22,7 +22,7 @@ button {
     border-radius: 8px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 12px;
-    text-align: center;
+    
 }
 
 
@@ -60,4 +60,9 @@ tbody tr:nth-child(even) {
 
 #delete-button {
     text-align: center;
+}
+
+.total {
+    text-align: right;
+
 }

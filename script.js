@@ -40,9 +40,12 @@ function addEmployee(event) {
     <td>${idnumber}</td>
     <td>${title}</td>
     <td>$${annualSalary}</td>
-    <td><button id="delete-button">Delete</button></td>
+    <td><button id="delete-button" data-salary="${annualSalary}">Delete</button></td>
     </tr>`
     );
+
+    addMonthly();
+    $('#monthlyTotal').text(calculateMonthly());
 
     $('#firstname-input').val("");
     $('#lastname-input').val("");
@@ -50,13 +53,23 @@ function addEmployee(event) {
     $('#title-input').val("");
     $('#salary-input').val("");
 
-    addMonthly();
-    calculateMonthly();
+    display();
 
 }
 
 function deleteThis(){
+    const numberToRemove = Number($(this).attr('data-salary'));
+    console.log($(this).attr('data-salary'))
+    
+    monthlyTotal = monthlyTotal.filter(function(item) {
+        return item !== numberToRemove
+    })
+    
     $(this).parent().parent().remove();
+
+
+    $('#monthlyTotal').text(calculateMonthly());
+
 }
 
 // let monthlyTotal= [];
@@ -67,24 +80,37 @@ function deleteThis(){
 // 4. calulate the total monthly create new function
 
 function addMonthly(){
-    let newSalary = Number($('#salary-input').text())
+    let newSalary = Number($('#salary-input').val())
     
     monthlyTotal.push(newSalary);
 
-    $('#salary-input').text(newSalary);
-    
-    console.log(monthlyTotal);   
-}
+    console.log(monthlyTotal);
 
-function calculateMonthly(){;
+}
 // 1. loop thru monthlyTotal
 // 2. for each new salary add up total monthly 
+function calculateMonthly(){
 let monthTotal = 0;
 for (let i = 0; i<monthlyTotal.length; i++){
 
 monthTotal += monthlyTotal[i];
 }
+return monthTotal
+
+
 console.log(monthTotal);
+
+
+
 }
 
+//  Use .css jquery functions to display different background 
+
+function display(){
+    if((calculateMonthly()) >= 20000){
+        $('#monthlyTotal').css('background-color', 'red');
+    } else {
+        $('#monthlyTotal').css('background-color', 'white');
+    }
+}
 
