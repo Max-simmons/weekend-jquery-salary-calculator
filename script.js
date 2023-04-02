@@ -18,6 +18,8 @@ function onReady() {
 $('.submit-button').on('click', addEmployee)
 
 $('tbody').on('click', '#delete-button', deleteThis);
+
+$("#add-button").on('click', addMonthly)
 }
 
 function addEmployee(event) {
@@ -27,7 +29,7 @@ function addEmployee(event) {
     let lastName = $('#lastname-input').val();
     let idnumber = $('#id-number').val();
     let title = $('#title-input').val();
-    let annualSalary = $('#salary-input').val();
+    let annualSalary = Number($('#salary-input').val());
 
     $('tbody').append(`
     <tr id= "table row">
@@ -45,9 +47,31 @@ function addEmployee(event) {
     $('#id-number').val("");
     $('#title-input').val("");
     $('#salary-input').val("");
+
+    
+
+
 }
 
 function deleteThis(){
     $(this).parent().parent().remove();
 }
+
+let monthlyTotal= [];
+
+// 1. get the user input
+// 2. create a new object
+// 3. push the new object into the array
+// 4. calulate the total monthly 
+
+function addMonthly(){
+    let newSalary = $('#salary-input').val()
+    
+    monthlyTotal.push(newSalary);
+
+    $('#salary-input').val('');
+    
+    console.log(monthlyTotal);   
+}
+
 
