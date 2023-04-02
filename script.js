@@ -43,8 +43,9 @@ function addEmployee(event) {
     <td><button id="delete-button" data-salary="${annualSalary}">Delete</button></td>
     </tr>`
     );
-
+    
     addMonthly();
+    display();
     $('#monthlyTotal').text(calculateMonthly());
 
     $('#firstname-input').val("");
@@ -53,7 +54,7 @@ function addEmployee(event) {
     $('#title-input').val("");
     $('#salary-input').val("");
 
-    display();
+   
 
 }
 
@@ -61,15 +62,22 @@ function deleteThis(){
     const numberToRemove = Number($(this).attr('data-salary'));
     console.log($(this).attr('data-salary'))
     
-    monthlyTotal = monthlyTotal.filter(function(item) {
-        return item !== numberToRemove
-    })
+
+    const index = monthlyTotal.indexOf(numberToRemove);
+    if (index > -1) { 
+    monthlyTotal.splice(index, 1); 
+    }
+
+    // monthlyTotal = monthlyTotal.filter(function(item) {
+    //     return item !== numberToRemove
+    // })
     
     $(this).parent().parent().remove();
 
 
     $('#monthlyTotal').text(calculateMonthly());
-
+    
+    display();
 }
 
 // let monthlyTotal= [];
