@@ -22,7 +22,10 @@ button {
     border-radius: 8px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 12px;
+    text-align: center;
 }
+
+
 
 /* Table CSS */
 
@@ -53,4 +56,8 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
     background-color: lightgray;
+}
+
+#delete-button {
+    text-align: center;
 }
